@@ -20,6 +20,11 @@ builder.Services.AddAuthentication()
                 {
                     options.ClientId = configuration["Authentication:Google:ClientId"];
                     options.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+                })
+                .AddMicrosoftAccount(options =>
+                {
+                    options.ClientId = configuration["Authentication:Microsoft:ClientId"];
+                    options.ClientSecret = configuration["Authentication:Microsoft:ClientSecret"];
                 });
 
 var app = builder.Build();
